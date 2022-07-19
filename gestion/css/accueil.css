@@ -9,24 +9,34 @@
     min-height: 300px;
 }
 
+.firstBox {
+    box-shadow: 0 20px 80px #647587 !important;
+    height: auto !important;
+}
+
+.firstBox > div {
+    border: solid 1px #647587;
+    padding: 1%;
+    width: auto !important;
+    height: auto !important;
+}
+
 .Box {
     border: solid 1px #647587;
-    width: inherit;
+    width: 40%;
     padding: 0.5%;
-    box-shadow: 0 20px 80px #647587;   
+    box-shadow: 0 20px 80px #64758748;  
+    height: 450px;
+    margin: 2%;
 }
 
 .Box > div {
-    border: solid 1px #647587;
-    padding: 1%;
+    width: 98%;
+    height: 90%;
 }
 
-.Video {
-    background: url("../../images/montre.gif") no-repeat;
-    background-size: cover;
-    background-position: center;
-    width: 85%;
-    height: 550px;
+.Box > div > h1{
+    padding: 0.5%;
 }
 
 .SousBannière {
@@ -35,28 +45,35 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    gap: 5%;
+    flex-wrap: wrap;
+    padding: 1%;
 }
 
-.SousBannière > div:last-child {
-    width: 30%;
-}
 
 .Accueil > div {
     border-top: solid 1px #647587;
 }
 
-.Accueil > .Présentation {
-    background-color: #14171a;
-    padding: 0.5%;
+.g2-tooltip {
+    background-color: #3d4752 !important;
+    color: #eee !important;
+    font-weight: bold !important;
+    box-shadow: '0 20px 80px #6f8294' !important;
+    font-size: 15px !important;
+    max-width: 400px !important;
 }
 
-.Présentation > .Box > div {
-    display: flex;
-    flex-direction: row;
-    gap: 5%;
+.g2-tooltip > div {
+    width: auto !important;
 }
 
-.Présentation > .Box > div > p {
-    padding: 0.5%;
-    text-align: justify;
+dt, dd{
+    color: #eee;
+}
+
+.stats {
+    border: solid 1px #647587;
+    text-align: center;
+    border-radius: 10px;
 }

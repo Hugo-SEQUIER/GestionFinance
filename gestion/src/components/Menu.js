@@ -31,8 +31,11 @@ export default function MenuNav() {
 		<header>
             <div>
                 <Icone text="Gestion Facile" image="../../images/iconeGestionTransparant.png" navig={"/"} />
-                <Icone text="Dashboard" image="../../images/dashboard0.png" navig={"/dashboard"} />
-                <Icone text="Paramètres" image="../../images/settings0.png" navig={"/parametres"} />
+                <Icone text="Portefeuille" image="../../images/dashboard0.png" navig={"/portefeuille"} />
+                <Icone text="Cryptomonnaie" image="../../images/cryptocurrencies.png" navig={"/cryptomonnaie"} />
+                <Icone text="Immobilier" image="../../images/asset-management.png" navig={"/immobilier"} />
+                <Icone text="Bourse" image="../../images/bourse.png" navig={"/bourse"} />
+                <Icone text="Mon Compte" image="../../images/user.png" navig={"/compte"} />
             </div>
 		</header>
 	);
