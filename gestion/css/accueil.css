@@ -1,0 +1,62 @@
+.Bannière {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5%;
+    background-color: #14171a;
+    min-height: 300px;
+}
+
+.Box {
+    border: solid 1px #647587;
+    width: inherit;
+    padding: 0.5%;
+    box-shadow: 0 20px 80px #647587;   
+}
+
+.Box > div {
+    border: solid 1px #647587;
+    padding: 1%;
+}
+
+.Video {
+    background: url("../../images/montre.gif") no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 85%;
+    height: 550px;
+}
+
+.SousBannière {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.SousBannière > div:last-child {
+    width: 30%;
+}
+
+.Accueil > div {
+    border-top: solid 1px #647587;
+}
+
+.Accueil > .Présentation {
+    background-color: #14171a;
+    padding: 0.5%;
+}
+
+.Présentation > .Box > div {
+    display: flex;
+    flex-direction: row;
+    gap: 5%;
+}
+
+.Présentation > .Box > div > p {
+    padding: 0.5%;
+    text-align: justify;
+}

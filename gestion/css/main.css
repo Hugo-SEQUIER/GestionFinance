@@ -1,0 +1,44 @@
+footer {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 5%;
+    background-color: #161a1e;
+    padding: 0.5%;
+    color: #cad1d8;
+    border-top: solid 1px #647587;
+}
+
+footer img {
+    width: 20px;
+    margin-right: 5px;
+}
+
+body {
+    min-height: 100%;
+    background-color: #14171a !important;
+    color: #cad1d8;
+}
+
+p {
+    color: #cad1d8;
+}
+
+h1, h2, h3, h4 {
+    color: #cad1d8;
+}
+/**THEMES
+#eff1f3 w3-theme-l5 
+#cad1d8 w3-theme-l4 
+#95a3b1 w3-theme-l3 
+#647587 w3-theme-l2 
+#3d4752 w3-theme-l1 
+#161a1e w3-theme 
+#14171a w3-theme-d1 
+#111417 w3-theme-d2 
+#0f1215 w3-theme-d3 
+#0d0f12 w3-theme-d4 
+#0b0d0f w3-theme-d5
+*/

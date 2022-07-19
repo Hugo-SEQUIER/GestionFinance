@@ -1,0 +1,45 @@
+header {
+    width: 100%;
+    background-color: #161a1e;
+    padding: 0.4%;
+}
+
+header > div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: calc(10% - 60px);
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+header > div a > img {
+    width: 35px;
+}
+
+header > div a:first-child > img{
+    width: 80px;
+}
+
+.css-1ozmk1d {
+    background-color: #161a1e !important;
+    min-width: 0 !important;
+}
+
+header h1:hover {
+    cursor: pointer;
+    background-color: #3d4752;
+}
+
+header button:hover {
+    background-color: #3d4752;
+}
+
+header h1 {
+    padding: 0.5%;
+}
+
+header button {
+    padding: 0.5%;
+}
