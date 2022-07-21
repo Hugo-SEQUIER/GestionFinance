@@ -24,7 +24,7 @@ function lineChart(data) {
 		},
 		xAxis: {
 			// type: 'timeCat',
-			tickCount: 100,
+			tickCount: 10,
 			label: {
 				style: {
 					fill: 'white',
