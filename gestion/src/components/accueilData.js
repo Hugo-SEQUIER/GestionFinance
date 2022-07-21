@@ -1,7 +1,7 @@
 let donut = [
     {
         type: "Immobilier",
-        valeur: 5,
+        valeur: 10,
     },
     {
         type: "Cryptomonnaie",
@@ -9,12 +9,12 @@ let donut = [
     },
     {
         type: "Loyer",
-        valeur: 35,
+        valeur: 30,
 
     },
     {
         type: "Bourse",
-        valeur: 0,
+        valeur: 5,
     },
     {
         type: "Loisirs",
@@ -22,200 +22,105 @@ let donut = [
     },
     {
         type: "Besoins",
-        valeur: 35,
+        valeur: 30,
     }
 ];
 
 let area = [
     {
-        name: "Valeur wallet crypto en €",
+        name: "Valeur investissement en €",
         scale: "01-2021",
-        valeur: 300,
+        valeur: 600,
     },
     {
-        name: "Valeur wallet crypto en €",
+        name: "Valeur investissement en €",
         scale: "02-2021",
-        valeur: 800,
+        valeur: 1600,
     },
     {
-        name: "Valeur wallet crypto en €",
+        name: "Valeur investissement en €",
         scale: "03-2021",
-        valeur: 1500,
-    },
-    {
-        name: "Valeur wallet crypto en €",
-        scale: "04-2021",
-        valeur: 2600,
-    },
-    {
-        name: "Valeur wallet crypto en €",
-        scale: "05-2021",
         valeur: 3000,
     },
     {
-        name: "Valeur wallet crypto en €",
-        scale: "06-2021",
-        valeur: 2400,
-    },
-    {
-        name: "Valeur wallet crypto en €",
-        scale: "07-2021",
-        valeur: 1800,
-    },
-        {
-        name: "Valeur wallet crypto en €",
-        scale: "08-2021",
-        valeur: 2300,
-    },
-    {
-        name: "Valeur wallet crypto en €",
-        scale: "09-2021",
-        valeur: 2700,
-    },
-    {
-        name: "Valeur wallet crypto en €",
-        scale: "10-2021",
-        valeur: 3700,
-    },
-    {
-        name: "Valeur wallet crypto en €",
-        scale: "11-2021",
-        valeur: 4400,
-    },
-    {
-        name: "Valeur wallet crypto en €",
-        scale: "12-2021",
-        valeur: 4000,
-    },
-    {
-        name: "Valeur wallet crypto en €",
-        scale: "01-2022",
-        valeur: 3300,
-    },
-    {
-        name: "Valeur wallet crypto en €",
-        scale: "02-2022",
-        valeur: 3500,
-    },
-        {
-        name: "Valeur wallet crypto en €",
-        scale: "03-2022",
-        valeur: 4000,
-    },
-    {
-        name: "Valeur wallet crypto en €",
-        scale: "04-2022",
-        valeur: 4000,
-    },
-    {
-        name: "Valeur wallet crypto en €",
-        scale: "05-2022",
-        valeur: 3500,
-    },
-    {
-        name: "Valeur wallet crypto en €",
-        scale: "06-2022",
-        valeur: 3000,
-    },
-    {
-        name: "Valeur wallet crypto en €",
-        scale: "07-2022",
-        valeur: 2700,
-    },
-     {
-        name: "Valeur BTC/€",
-        scale: "01-2021",
-        valeur: 23713,
-    },
-    {
-        name: "Valeur BTC/€",
-        scale: "02-2021",
-        valeur: 27360,
-    },
-    {
-        name: "Valeur BTC/€",
-        scale: "03-2021",
-        valeur: 37433,
-    },
-    {
-        name: "Valeur BTC/€",
+        name: "Valeur investissement en €",
         scale: "04-2021",
-        valeur: 50051,
+        valeur: 5200,
     },
     {
-        name: "Valeur BTC/€",
+        name: "Valeur investissement en €",
         scale: "05-2021",
-        valeur: 47989,
+        valeur: 6000,
     },
     {
-        name: "Valeur BTC/€",
+        name: "Valeur investissement en €",
         scale: "06-2021",
-        valeur: 30466,
+        valeur: 4800,
     },
     {
-        name: "Valeur BTC/€",
+        name: "Valeur investissement en €",
         scale: "07-2021",
-        valeur: 29556,
+        valeur: 3600,
     },
         {
-        name: "Valeur BTC/€",
+        name: "Valeur investissement en €",
         scale: "08-2021",
-        valeur: 35257,
+        valeur: 4600,
     },
     {
-        name: "Valeur BTC/€",
+        name: "Valeur investissement en €",
         scale: "09-2021",
-        valeur: 40307,
+        valeur: 5400,
     },
     {
-        name: "Valeur BTC/€",
+        name: "Valeur investissement en €",
         scale: "10-2021",
-        valeur: 37898,
+        valeur: 7400,
     },
     {
-        name: "Valeur BTC/€",
+        name: "Valeur investissement en €",
         scale: "11-2021",
-        valeur: 53228,
+        valeur: 8800,
     },
     {
-        name: "Valeur BTC/€",
+        name: "Valeur investissement en €",
         scale: "12-2021",
-        valeur: 50297,
+        valeur: 8000,
     },
     {
-        name: "Valeur BTC/€",
+        name: "Valeur investissement en €",
         scale: "01-2022",
-        valeur: 40634,
+        valeur: 9000,
     },
     {
-        name: "Valeur BTC/€",
+        name: "Valeur investissement en €",
         scale: "02-2022",
-        valeur: 34270,
+        valeur: 10000,
     },
         {
-        name: "Valeur BTC/€",
+        name: "Valeur investissement en €",
         scale: "03-2022",
-        valeur: 38500,
+        valeur: 10200,
     },
     {
-        name: "Valeur BTC/€",
+        name: "Valeur investissement en €",
         scale: "04-2022",
-        valeur: 41158,
+        valeur: 10800,
     },
     {
-        name: "Valeur BTC/€",
+        name: "Valeur investissement en €",
         scale: "05-2022",
-        valeur: 35805,
+        valeur: 11200,
     },
     {
-        name: "Valeur BTC/€",
+        name: "Valeur investissement en €",
         scale: "06-2022",
-        valeur: 29623,
+        valeur: 11600,
     },
     {
-        name: "Valeur BTC/€",
+        name: "Valeur investissement en €",
         scale: "07-2022",
-        valeur: 19060,
+        valeur: 12600,
     },
 ];
 
@@ -240,99 +145,99 @@ let pie = [
 
 let line = [
  {
-        name: "Plus value wallet crypto en €",
+        name: "Plus value investissement en €",
         scale: "01-2021",
         valeur: 0,
     },
     {
-        name: "Plus value wallet crypto en €",
+        name: "Plus value investissement en €",
         scale: "02-2021",
         valeur: 200,
     },
     {
-        name: "Plus value wallet crypto en €",
+        name: "Plus value investissement en €",
         scale: "03-2021",
         valeur: 600,
     },
     {
-        name: "Plus value wallet crypto en €",
+        name: "Plus value investissement en €",
         scale: "04-2021",
-        valeur: 1200,
+        valeur: 1400,
     },
     {
-        name: "Plus value wallet crypto en €",
+        name: "Plus value investissement en €",
         scale: "05-2021",
         valeur: 1500,
     },
     {
-        name: "Plus value wallet crypto en €",
+        name: "Plus value investissement en €",
         scale: "06-2021",
         valeur: 600,
     },
     {
-        name: "Plus value wallet crypto en €",
+        name: "Plus value investissement en €",
         scale: "07-2021",
         valeur: -300,
     },
         {
-        name: "Plus value wallet crypto en €",
+        name: "Plus value investissement en €",
         scale: "08-2021",
         valeur: -100,
     },
     {
-        name: "Plus value wallet crypto en €",
+        name: "Plus value investissement en €",
         scale: "09-2021",
         valeur: 0,
     },
     {
-        name: "Plus value wallet crypto en €",
+        name: "Plus value investissement en €",
         scale: "10-2021",
         valeur: 700,
     },
     {
-        name: "Plus value wallet crypto en €",
+        name: "Plus value investissement en €",
         scale: "11-2021",
         valeur: 1100,
     },
     {
-        name: "Plus value wallet crypto en €",
+        name: "Plus value investissement en €",
         scale: "12-2021",
         valeur: 400,
     },
     {
-        name: "Plus value wallet crypto en €",
+        name: "Plus value investissement en €",
         scale: "01-2022",
-        valeur: -600,
+        valeur: 600,
     },
     {
-        name: "Plus value wallet crypto en €",
+        name: "Plus value investissement en €",
         scale: "02-2022",
-        valeur: -700,
+        valeur: 800,
     },
         {
-        name: "Plus value wallet crypto en €",
+        name: "Plus value investissement en €",
         scale: "03-2022",
-        valeur: -500,
+        valeur: 600,
     },
     {
-        name: "Plus value wallet crypto en €",
+        name: "Plus value investissement en €",
         scale: "04-2022",
-        valeur: -800,
+        valeur: 600,
     },
     {
-        name: "Plus value wallet crypto en €",
+        name: "Plus value investissement en €",
         scale: "05-2022",
-        valeur: -1600,
+        valeur: 500,
     },
     {
-        name: "Plus value wallet crypto en €",
+        name: "Plus value investissement en €",
         scale: "06-2022",
-        valeur: -2400,
+        valeur: 400,
     },
     {
-        name: "Plus value wallet crypto en €",
+        name: "Plus value investissement en €",
         scale: "07-2022",
-        valeur: -3000,
+        valeur: 600,
     },
 ]
 export {

@@ -1,6 +1,6 @@
 header {
     width: 100%;
-    background-color: #161a1e;
+    background-color: #22272c;
     padding: 0.4%;
 }
 
@@ -23,23 +23,6 @@ header > div a:first-child > img{
 }
 
 .css-1ozmk1d {
-    background-color: #161a1e !important;
+    background-color: #22272c !important;
     min-width: 0 !important;
-}
-
-header h1:hover {
-    cursor: pointer;
-    background-color: #3d4752;
-}
-
-header button:hover {
-    background-color: #3d4752;
-}
-
-header h1 {
-    padding: 0.5%;
-}
-
-header button {
-    padding: 0.5%;
 }
