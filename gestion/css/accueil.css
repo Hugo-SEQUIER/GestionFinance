@@ -107,3 +107,25 @@ dt, dd{
     justify-content: center;
     align-items: center;
 }
+
+h1 {
+    font-size: 28px !important;
+}
+
+p {
+    font-size: 18px !important;
+}
+
+@media (max-width: 1000px) {
+    .flexSection {
+        flex-direction: column;
+    }
+
+    .Box {
+        width: 80%;
+    }
+
+    .firstBox {
+        width: 80% !important;
+    }
+}

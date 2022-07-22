@@ -55,7 +55,7 @@ export default function Accueil() {
 
     return (
         <>
-         <Carousel infiniteLoop={true} showStatus={false}>
+         <Carousel infiniteLoop={true} showStatus={false} useKeyboardArrows={true} emulateTouch={true} swipeable={true}>
         <div className="section">
             <div className='Bannière'>
                 <img src='../../images/iconeGestionTransparant.png' alt='Logo GestionFacile' />
@@ -65,7 +65,7 @@ export default function Accueil() {
                         <p>
                             En indiquant votre salaire, ainsi que vos investissements (immobilier, bourse, cryptomonnaie, etc.), vous pouvez suivre tout votre patrimoine et son évolution au fil du temps.
                             <br /> <br />
-                            Gagnez du temps et du rendement !
+                            Gagnez du temps et générez des bénéfices !
                         </p>
                     </div>
                 </div>
@@ -98,12 +98,7 @@ export default function Accueil() {
                     <div className='Box firstBox'>
                         <div>
                             <div>
-                                <h1><strong>Simplifier votre gestion de patrimoines</strong></h1>
-                                <p>
-                                    En indiquant votre salaire, ainsi que vos investissements (immobilier, bourse, cryptomonnaie, etc.), vous pouvez suivre tout votre patrimoine et son évolution au fil du temps.
-                                    <br /> <br />
-                                    Gagnez du temps et du rendement !
-                                </p>
+                                <h1><strong>Suivez le montant de vos investissements et leurs évolutions !</strong></h1>
                             </div>
                         </div>
                     </div>
@@ -118,12 +113,7 @@ export default function Accueil() {
                     <div className='Box firstBox'>
                         <div>
                             <div>
-                                <h1><strong>Simplifier votre gestion de patrimoines</strong></h1>
-                                <p>
-                                    En indiquant votre salaire, ainsi que vos investissements (immobilier, bourse, cryptomonnaie, etc.), vous pouvez suivre tout votre patrimoine et son évolution au fil du temps.
-                                    <br /> <br />
-                                    Gagnez du temps et du rendement !
-                                </p>
+                                <h1><strong>Organisez vos dépenses chaque mois afin de mieux prévoir vos investissements !</strong></h1>
                             </div>
                         </div>
                     </div>
@@ -145,12 +135,7 @@ export default function Accueil() {
                     <div className='Box firstBox'>
                         <div>
                             <div>
-                                <h1><strong>Simplifier votre gestion de patrimoines</strong></h1>
-                                <p>
-                                    En indiquant votre salaire, ainsi que vos investissements (immobilier, bourse, cryptomonnaie, etc.), vous pouvez suivre tout votre patrimoine et son évolution au fil du temps.
-                                    <br /> <br />
-                                    Gagnez du temps et du rendement !
-                                </p>
+                                <h1><strong>Etudiez la plus value que vous générez et accéder aux détails de vos bénéfices !</strong></h1>
                             </div>
                         </div>
                     </div>
@@ -172,12 +157,7 @@ export default function Accueil() {
                     <div className='Box firstBox'>
                         <div>
                             <div>
-                                <h1><strong>Simplifier votre gestion de patrimoines</strong></h1>
-                                <p>
-                                    En indiquant votre salaire, ainsi que vos investissements (immobilier, bourse, cryptomonnaie, etc.), vous pouvez suivre tout votre patrimoine et son évolution au fil du temps.
-                                    <br /> <br />
-                                    Gagnez du temps et du rendement !
-                                </p>
+                                <h1><strong>Analyser la répartition de votre patrimoine ainsi que vos cryptomonnaies !</strong></h1>
                             </div>
                         </div>
                     </div>
