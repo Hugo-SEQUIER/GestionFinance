@@ -106,6 +106,7 @@ dt, dd{
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    margin-bottom: 2%;
 }
 
 h1 {
