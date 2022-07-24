@@ -1,0 +1,28 @@
+.css-hxtskf {
+    background-color: #3d4752 !important;
+    color : #cad1d8 !important;
+    border-radius: 20px !important;
+}
+
+.css-k0waxj {
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.css-9fgtzh {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.css-p3yh4l:hover,
+.css-p3yh4l[data-hover] {
+    background: #3d4752 !important;
+}
+
+.css-1jk5bz2:hover, .css-1jk5bz2[data-hover] {
+    background: #3d4752 !important;
+}
+
+div a {
+    font-size: 10px;
+}
