@@ -14,6 +14,14 @@ import {
   Input,
   Button,
   useDisclosure,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  MenuItemOption,
+  MenuGroup,
+  MenuOptionGroup,
+  MenuDivider,
 } from '@chakra-ui/react'
 import { login } from '../../services/AuthApi';
 import Auth from '../../contexts/Auth';
@@ -30,7 +38,7 @@ export default function MenuNav() {
 	// State de l'utilisateurs
 	const [prenomUser, setPrenomUser] = useState("");
 	const [nomUser, setNomUser] = useState("");
-	const [idUser, setIdUser] = useState("");
+	const [idUser, setIdUser] = useState();
 	const [telUser, setTelUser] = useState("");
 	const [birthdayUser, setBirthdayUser] = useState("");
 	const [mailUser, setMailUser] = useState("");
@@ -68,7 +76,7 @@ export default function MenuNav() {
         try{
             const response = await login(mailUser, passwordUser);
             console.log(response);
-            setAuth(true);
+            setAuth([true, response.userId]);
             axios.get("http://localhost:8070/api/auth/id", {params : {id : response.userId}})
                 .then((res) =>{
                     setIdUser(res.data._id);
@@ -90,6 +98,9 @@ export default function MenuNav() {
         else if (mailUser != mail2User){
             setMessageErreur("Les emails ne correspondent pas");
         }
+		else if (!mailUser.includes("@")){
+			setMessageErreur("L'email n'est pas valide");
+		}
         else{  
             axios.post("http://localhost:8070/api/auth/signup", {
                 nomUser : nomUser,
@@ -114,7 +125,10 @@ export default function MenuNav() {
 					abonnements : new Map("", 0),
 					autres : new Map("", 0),
 				}
-            }).then(() =>  setMessageErreur("Vous êtes bien inscrit !") )
+            }).then(() =>  {
+				setMessageErreur("Vous êtes bien inscrit !");
+				onClose;
+			})
               .catch((err) => setMessageErreur("L'adresse mail est utilisée"));
         }
    
@@ -132,11 +146,11 @@ export default function MenuNav() {
 							<ModalHeader>Se Connecter</ModalHeader><ModalCloseButton /><ModalBody pb={6}>
 							<FormControl>
 								<FormLabel mt={4}>E-mail</FormLabel>
-								<Input ref={userRef} placeholder='xxxx@xxx.xx' onChange={(event) => setMailUser(event.target.value)} />
+								<Input type={"email"} ref={userRef} placeholder='xxxx@xxx.xx' onChange={(event) => setMailUser(event.target.value)} />
 							</FormControl>
 							<FormControl mt={4}>
-								<FormLabel>Mot de passe</FormLabel>
-								<Input ref={userRef} placeholder='azerty123' onChange={(event) => setPasswordUser(event.target.value)} />
+								<FormLabel >Mot de passe</FormLabel>
+								<Input type={"password"} ref={userRef} placeholder='azerty123' onChange={(event) => setPasswordUser(event.target.value)} />
 								<a>Mot de passe oublié ?</a>
 							</FormControl>
 							<p>{messageErreur}</p>
@@ -156,7 +170,7 @@ export default function MenuNav() {
 						<><ModalHeader>Créer un compte</ModalHeader><ModalCloseButton /><ModalBody pb={6}>
 							<FormControl>
 								<FormLabel mt={4}>Prénom</FormLabel>
-								<Input ref={userRef} placeholder='Prenom' onChange={(event) => setPrenomUser(event.target.value)} />
+								<Input ref={userRef} placeholder='Prénom' onChange={(event) => setPrenomUser(event.target.value)} />
 							</FormControl>
 							<FormControl>
 								<FormLabel mt={4}>Nom</FormLabel>
@@ -164,19 +178,19 @@ export default function MenuNav() {
 							</FormControl>
 							<FormControl>
 								<FormLabel mt={4}>E-Mail</FormLabel>
-								<Input ref={userRef} placeholder='xxxx@xxx.xx' onChange={(event) => setMailUser(event.target.value)} />
+								<Input type={"email"} ref={userRef} placeholder='xxxx@xxx.xx' onChange={(event) => setMailUser(event.target.value)} />
 							</FormControl>
 							<FormControl>
 								<FormLabel mt={4}>Confirmez votre e-mail</FormLabel>
-								<Input ref={userRef} placeholder='xxxx@xxx.xx' onChange={(event) => setMail2User(event.target.value)} />
+								<Input type={"email"} ref={userRef} placeholder='xxxx@xxx.xx' onChange={(event) => setMail2User(event.target.value)} />
 							</FormControl>
 							<FormControl>
 								<FormLabel mt={4}>Date de Naissance</FormLabel>
-								<Input ref={userRef} placeholder='xx/xx/xxxx' onChange={(event) => setBirthdayUser(event.target.value)} />
+								<Input type={"date"}ref={userRef} placeholder='xx/xx/xxxx' onChange={(event) => setBirthdayUser(event.target.value)} />
 							</FormControl>
 							<FormControl mt={4}>
 								<FormLabel>Téléphone</FormLabel>
-								<Input  ref={userRef} placeholder='xx.xx.xx.xx.xx' onChange={(event) => setTelUser(event.target.value)} />
+								<Input type={'tel'} pattern={"[0-9]{2}.[0-9]{2}.[0-9]{2}.[0-9]{2}.[0-9]{2}"} ref={userRef} placeholder='xx.xx.xx.xx.xx' onChange={(event) => setTelUser(event.target.value)} />
 							</FormControl>
 							<FormControl mt={4}>
 								<FormLabel>Mot de passe</FormLabel>
@@ -206,6 +220,10 @@ export default function MenuNav() {
 
 	}
 
+	function deconnect(){
+		window.localStorage.clear(); //clear all localstorage
+		window.location.reload();
+	}
 	return (
 		<>
 			<header>
@@ -215,7 +233,9 @@ export default function MenuNav() {
 					<Icone text="Cryptomonnaie" image="../../images/cryptocurrencies.png" navig={"/cryptomonnaie"} />
 					<Icone text="Immobilier" image="../../images/asset-management.png" navig={"/immobilier"} />
 					<Icone text="Bourse" image="../../images/bourse.png" navig={"/bourse"} />
-					<Tooltip label={"Mon Compte"} fontSize='md' bg="#3d4752"> 
+					<Menu isLazy>
+					<MenuButton>
+						<Tooltip label={"Mon Compte"} fontSize='md' bg="#3d4752"> 
 						<a
 							onClick={onOpen}
 						>
@@ -223,10 +243,18 @@ export default function MenuNav() {
 								src={"../../images/user.png"}
 								alt={"Mon Compte"} />
 						</a>
-					</Tooltip>
+					</Tooltip></MenuButton>
+					{isAuth[0] && (
+					<MenuList>
+						<MenuItem>Paramètres</MenuItem>
+						<MenuItem onClick={deconnect}>Déconnexion</MenuItem>
+					</MenuList>
+					)}
+					</Menu>
+					
 				</div>
 			</header>
-			{!isAuth && (
+			{!isAuth[0] && (
 				<div>
 					{form(createAccount)}
 				</div> 

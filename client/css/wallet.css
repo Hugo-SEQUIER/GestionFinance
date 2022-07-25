@@ -1,0 +1,8 @@
+.wallet {
+    padding : 1%;
+}
+
+.wallet > div > div {
+    width: 100%;
+    text-align: center;
+}

@@ -23,7 +23,27 @@ header > div a:first-child > img{
     width: 80px;
 }
 
+span > a > img {
+    width: 35px !important;
+}
 .css-1ozmk1d {
     background-color: #22272c !important;
     min-width: 0 !important;
+}
+
+.css-xl71ch {
+    pointer-events: all !important;
+}
+
+.css-13c7rae {
+    color : #cad1d8 !important;
+}
+
+.css-13c7rae:active,
+.css-13c7rae[data-active] {
+    background: #22272c !important;
+}
+.css-13c7rae:focus,
+.css-13c7rae[data-focus] {
+    background: #3d4752 !important;
 }

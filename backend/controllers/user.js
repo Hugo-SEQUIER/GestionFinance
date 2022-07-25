@@ -41,7 +41,7 @@ exports.login = (req,res,next) => {
             if (!valid) {
                 return res.status(401).json({message: "Mot de passe incorrect"})
             }
-            const token = jwt.sign({userId : user.id}, process.env.ACCESS_TOKEN_SECRET, {expiresIn : '1h'});
+            const token = jwt.sign({userId : user.id}, process.env.ACCESS_TOKEN_SECRET, {expiresIn : '24h'});
             res.status(200).json({userId : user._id, token : token});
             return token;
         })
@@ -69,11 +69,15 @@ exports.modifyInfo= (req, res, next) => {
   console.log(req.body.nom);
   User.updateOne({"_id" : mongoose.Types.ObjectId(req.body.id)},
   { $set: {
-      nom :  req.body.nomUser,
+      nom : req.body.nomUser,
       prenom : req.body.prenomUser,
+      telephone : req.body.telUser,
+      birthday : req.body.birthdayUser,
       mail : req.body.mailUser,
-      email: req.body.mailUser,
-      telephone : req.body.telUser}
+      password: hash,
+      fonds : req.body.fondsUser,
+      depense : req.body.depense,
+    }
   }).then(() => res.status(201).json({message: "objet modifié"}))
     .catch((err) => res.status(401).json({err : err}));
 }
