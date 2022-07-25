@@ -46,7 +46,7 @@ module.exports = (env, { mode }) => ({
 	// configuration du fast-refresh [3/3]
 	devServer: {
 		// choix du port du serveur webpack qui va servir notre application
-		port: 8070,
+		port: 8000,
 		// configuration du dossier racine du serveur
 		static: {
 			directory: './',

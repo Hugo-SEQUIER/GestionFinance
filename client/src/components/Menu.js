@@ -37,24 +37,6 @@ export default function MenuNav() {
 	const [mail2User, setMail2User] = useState("");
 	const [passwordUser, setPasswordUser] = useState("");
 	const [password2User, setPassword2User] = useState("");
-	const [fondsUser, setFondsUser] = useState();
-	const depense = {
-		loyer : new Map(),
-            besoins : new Map(),
-            investissementsUtilisateur: {
-                bourse : new Map(),
-                crypto : new Map(),
-                immobilier : new Map(),
-                autres : new Map(),
-            },
-            mensualitesUtilisateur: new Map(),
-            epargne : new Map(),
-            loisirs : new Map(),
-            abonnements : new Map(),
-            autres : new Map(),
-    };
-	
-	const [depenseUser, setDepenseUser] = useState(depense);
 	
     const [messageErreur, setMessageErreur] = useState("");
     class Icone extends React.Component {
@@ -84,7 +66,7 @@ export default function MenuNav() {
 	const handleSubmit = async (event) => {
         event.preventDefault();
         try{
-            const response = await login(mail, pwd);
+            const response = await login(mailUser, passwordUser);
             console.log(response);
             setAuth(true);
             axios.get("http://localhost:8070/api/auth/id", {params : {id : response.userId}})
@@ -109,13 +91,29 @@ export default function MenuNav() {
             setMessageErreur("Les emails ne correspondent pas");
         }
         else{  
-                axios.post("http://localhost:8070/api/auth/signup", {
+            axios.post("http://localhost:8070/api/auth/signup", {
                 nomUser : nomUser,
                 prenomUser :prenomUser,
                 telUser : telUser,
 				birthdayUser : birthdayUser,
                 mailUser: mailUser,
                 passwordUser : passwordUser,
+				fondsUser : 0,
+				depense :{
+					loyer : new Map("", 0),
+					besoins : new Map("", 0),
+					investissements : {
+						bourse : new Map("", 0),
+						crypto : new Map("", 0),
+						immobilier : new Map("", 0),
+						autres : new Map("", 0),
+					},
+					mensualites : new Map("", 0),
+					epargne : new Map("", 0),
+					loisirs : new Map("", 0),
+					abonnements : new Map("", 0),
+					autres : new Map("", 0),
+				}
             }).then(() =>  setMessageErreur("Vous êtes bien inscrit !") )
               .catch((err) => setMessageErreur("L'adresse mail est utilisée"));
         }
@@ -213,12 +211,10 @@ export default function MenuNav() {
 			<header>
 				<div>
 					<Icone text="Gestion Facile" image="../../images/iconeGestionTransparant.png" navig={"/"} />
-					{isAuth && (<>
 					<Icone text="Portefeuille" image="../../images/dashboard0.png" navig={"/portefeuille"} />
 					<Icone text="Cryptomonnaie" image="../../images/cryptocurrencies.png" navig={"/cryptomonnaie"} />
 					<Icone text="Immobilier" image="../../images/asset-management.png" navig={"/immobilier"} />
 					<Icone text="Bourse" image="../../images/bourse.png" navig={"/bourse"} />
-					</>)}
 					<Tooltip label={"Mon Compte"} fontSize='md' bg="#3d4752"> 
 						<a
 							onClick={onOpen}

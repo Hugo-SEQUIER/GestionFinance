@@ -6,9 +6,27 @@ const userSchema = mongoose.Schema({
     prenom : {type: String, required: true},
     telephone : {type: String, required: true},
     mail : {type: String, required: true, unique: true},
-    email : {type: String, required: true, unique: true},
+    birthday : {type: String, required: true},
     password : {type: String, required: true},
-    admin : {type : Boolean, required: true}
+    fonds : {type : Number, required: false, min: 0},
+    depense : {
+        loyer : {type: Map},
+        besoins : {type: Map},
+        investissements : {
+            bourse : {type: Map},
+            crypto : {type: Map},
+            immobilier : {type: Map},
+            autres : {type: Map},
+        },
+        mensualites : {type: Map},
+        epargne : {type: Map},
+        loisirs : {type: Map},
+        abonnements : {type: Map},
+        autres : {type: Map},
+    }
 });
+
+
+
 userSchema.plugin(uniqueValidator);
 module.exports = mongoose.model('User', userSchema)

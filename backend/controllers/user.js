@@ -6,16 +6,17 @@ const { json } = require("body-parser");
 require('dotenv').config();
 
 exports.signup = (req, res, next) =>{
-    bcrypt.hash(req.body.password, 10)
+    bcrypt.hash(req.body.passwordUser, 10)
     .then( (hash) => {
         const user = new User({
-            nom : req.body.nom,
-            prenom : req.body.prenom,
-            telephone : req.body.telephone,
-            mail : req.body.email,
-            email : req.body.email,
+            nom : req.body.nomUser,
+            prenom : req.body.prenomUser,
+            telephone : req.body.telUser,
+            birthday : req.body.birthdayUser,
+            mail : req.body.mailUser,
             password: hash,
-            admin : false
+            fonds : req.body.fondsUser,
+            depense : req.body.depense,
         });
         user.save()
             .then(() => res.status(201).json({message : "Utilisateur crée !"}))
@@ -68,11 +69,11 @@ exports.modifyInfo= (req, res, next) => {
   console.log(req.body.nom);
   User.updateOne({"_id" : mongoose.Types.ObjectId(req.body.id)},
   { $set: {
-      nom :  req.body.nom,
-      prenom : req.body.prenom,
-      mail : req.body.mail,
-      email: req.body.mail,
-      telephone : req.body.telephone}
+      nom :  req.body.nomUser,
+      prenom : req.body.prenomUser,
+      mail : req.body.mailUser,
+      email: req.body.mailUser,
+      telephone : req.body.telUser}
   }).then(() => res.status(201).json({message: "objet modifié"}))
     .catch((err) => res.status(401).json({err : err}));
 }
