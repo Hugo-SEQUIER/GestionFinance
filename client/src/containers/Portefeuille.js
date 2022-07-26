@@ -1,12 +1,10 @@
 import React, { useState, useEffect, useContext, useRef} from 'react';
 import {
 	donutChart,
-	line,
+	lineChart,
 	columnChart,
-	area,
+	areaChart,
 	pieChart,
-	gaugeChart,
-	histogramChart,
 } from '../components/data';
 import { 
     Divider,
@@ -14,12 +12,35 @@ import {
     FormControl,
     FormLabel,
     Input,
-    Button,
+    Button,  
+    Drawer,
+    DrawerBody,
+    DrawerFooter,
+    DrawerHeader,
+    DrawerOverlay,
+    DrawerContent,
+    DrawerCloseButton,
+    useDisclosure,
+    Stat,
+    StatLabel,
+    StatNumber,
+    StatHelpText,
+    StatArrow,
+    StatGroup,
 } from '@chakra-ui/react'
+import {
+	donut,
+    area,
+    pie,
+    line,
+} from '../components/accueilData';
 import { getOneUser } from '../../services/AuthApi';
 import Auth from '../../contexts/Auth';
 import axios from 'axios';
 export default function Portefeuille(){
+    const { isOpen, onOpen, onClose } = useDisclosure();
+    const btnRef = React.useRef();
+
 	const {isAuth, setAuth} = useContext(Auth);
     const [user, setUser] = useState();
 	const [fondsUser, setFondsUser] = useState(0);
@@ -76,8 +97,11 @@ export default function Portefeuille(){
                     return donutChart(Object.fromEntries(result));
                 }
             }
-            
         }
+        else if (chart == 'donut'){
+            return donutChart(donut);
+        }
+        else return areaChart(area);
     }
 
     return (
@@ -85,65 +109,113 @@ export default function Portefeuille(){
         <div>
             <div className='Bannière' style={{minHeight : "150px"}}>
                 <h1>Portefeuille {user != undefined && `de ${user.prenom} ${user.nom}`}</h1>
+                <Button ref={btnRef} colorScheme='#3d4752' onClick={onOpen}>
+                    Saisissez vos dépenses
+                </Button>
             </div>
+
         </div>
-        {depenseUser != undefined && depenseUser.loyer.size > 0 && (<>
+
             <div className='wallet'>
-                <Center height='300px'>
+                <Center height='800px'>
                     <div>
                         <h1>Répartition des dépenses</h1>
-                        <div>
-                            {buildData("donut")}
+                        <div className='Box' style={{width : "94%"}}>
+                            <div>
+                                {buildData("donut")}
+                            </div>                       
                         </div>
                     </div>
                     <Divider orientation='vertical' />
                     <div>
                         <h1>Valeurs de votre portefeuille</h1>
+                        <div className='Box' style={{width : "94%", marginLeft: "5%"}}>
+                            <div>
+                            <div className='stats'>
+                                <StatGroup>
+                                    <Stat>
+                                        <StatLabel>Montant investi</StatLabel>
+                                        <StatNumber>11400.00€</StatNumber>
+                                        <StatHelpText>600.00€/mois</StatHelpText>
+                                    </Stat>
+                                    <Stat>
+                                        <StatLabel>Montant Final</StatLabel>
+                                        <StatNumber>12600.00€</StatNumber>
+                                        <StatHelpText>
+                                            <StatArrow type='increase' />
+                                            10.53%
+                                        </StatHelpText>
+                                    </Stat>
+                                </StatGroup>
+                            </div>
+                           
+                                {buildData("line")}
+                            </div>                       
+                        </div>
                     </div>
                 </Center>
             </div>
             <div className='tableWallet'>
 
             </div>
-            </>)}
-        {depenseUser == undefined  && (
-            <>
-            <div className=''>
-                <FormControl>
-                    <FormLabel mt={4}>Prénom</FormLabel>
-                    <Input ref={userRef} placeholder='Prénom' onChange={(event) => setPrenomUser(event.target.value)} />
-                </FormControl>
-                <FormControl>
-                    <FormLabel mt={4}>Nom</FormLabel>
-                    <Input ref={userRef} placeholder='Nom' onChange={(event) => setNomUser(event.target.value)} />
-                </FormControl>
-                <FormControl>
-                    <FormLabel mt={4}>E-Mail</FormLabel>
-                    <Input type={"email"} ref={userRef} placeholder='xxxx@xxx.xx' onChange={(event) => setMailUser(event.target.value)} />
-                </FormControl>
-                <FormControl>
-                    <FormLabel mt={4}>Confirmez votre e-mail</FormLabel>
-                    <Input type={"email"} ref={userRef} placeholder='xxxx@xxx.xx' onChange={(event) => setMail2User(event.target.value)} />
-                </FormControl>
-                <FormControl>
-                    <FormLabel mt={4}>Date de Naissance</FormLabel>
-                    <Input type={"date"} ref={userRef} placeholder='xx/xx/xxxx' onChange={(event) => setBirthdayUser(event.target.value)} />
-                </FormControl>
-                <FormControl mt={4}>
-                    <FormLabel>Téléphone</FormLabel>
-                    <Input type={'tel'} pattern={"[0-9]{2}.[0-9]{2}.[0-9]{2}.[0-9]{2}.[0-9]{2}"} ref={userRef} placeholder='xx.xx.xx.xx.xx' onChange={(event) => setTelUser(event.target.value)} />
-                </FormControl>
-                <FormControl mt={4}>
-                    <FormLabel>Mot de passe</FormLabel>
-                    <Input type={"password"} ref={userRef} placeholder='azerty123' onChange={(event) => setPasswordUser(event.target.value)} />
-                </FormControl>
-                <FormControl mt={4}>
-                    <FormLabel>Confirmez votre Mot de passe</FormLabel>
-                    <Input type={"password"} ref={userRef} placeholder='azerty123' onChange={(event) => setPassword2User(event.target.value)} />
-                </FormControl>
-            </div>
+
+    
+                  <Drawer
+                    isOpen={isOpen}
+                    placement='right'
+                    onClose={onClose}
+                    size={"xl"}
+                    finalFocusRef={btnRef}
+                >
+                    <DrawerOverlay />
+                    <DrawerContent>
+                    <DrawerCloseButton />
+                    <DrawerHeader>Saisissez vos dépenses</DrawerHeader>
+
+                    <DrawerBody>
+                        <FormControl>
+                        <FormLabel mt={4}>Prénom</FormLabel>
+                        <Input ref={userRef} placeholder='Prénom' onChange={(event) => setPrenomUser(event.target.value)} />
+                    </FormControl>
+                    <FormControl>
+                        <FormLabel mt={4}>Nom</FormLabel>
+                        <Input ref={userRef} placeholder='Nom' onChange={(event) => setNomUser(event.target.value)} />
+                    </FormControl>
+                    <FormControl>
+                        <FormLabel mt={4}>E-Mail</FormLabel>
+                        <Input type={"email"} ref={userRef} placeholder='xxxx@xxx.xx' onChange={(event) => setMailUser(event.target.value)} />
+                    </FormControl>
+                    <FormControl>
+                        <FormLabel mt={4}>Confirmez votre e-mail</FormLabel>
+                        <Input type={"email"} ref={userRef} placeholder='xxxx@xxx.xx' onChange={(event) => setMail2User(event.target.value)} />
+                    </FormControl>
+                    <FormControl>
+                        <FormLabel mt={4}>Date de Naissance</FormLabel>
+                        <Input type={"date"} ref={userRef} placeholder='xx/xx/xxxx' onChange={(event) => setBirthdayUser(event.target.value)} />
+                    </FormControl>
+                    <FormControl mt={4}>
+                        <FormLabel>Téléphone</FormLabel>
+                        <Input type={'tel'} pattern={"[0-9]{2}.[0-9]{2}.[0-9]{2}.[0-9]{2}.[0-9]{2}"} ref={userRef} placeholder='xx.xx.xx.xx.xx' onChange={(event) => setTelUser(event.target.value)} />
+                    </FormControl>
+                    <FormControl mt={4}>
+                        <FormLabel>Mot de passe</FormLabel>
+                        <Input type={"password"} ref={userRef} placeholder='azerty123' onChange={(event) => setPasswordUser(event.target.value)} />
+                    </FormControl>
+                    <FormControl mt={4}>
+                        <FormLabel>Confirmez votre Mot de passe</FormLabel>
+                        <Input type={"password"} ref={userRef} placeholder='azerty123' onChange={(event) => setPassword2User(event.target.value)} />
+                    </FormControl>
+                    </DrawerBody>
+
+                    <DrawerFooter>
+                        <Button variant='outline' mr={3} onClick={onClose}>
+                        Cancel
+                        </Button>
+                        <Button colorScheme='blue'>Save</Button>
+                    </DrawerFooter>
+                    </DrawerContent>
+                </Drawer>
             </>
-        )}
-        </>
+
     )
 }
