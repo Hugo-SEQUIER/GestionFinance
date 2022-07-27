@@ -5,7 +5,7 @@ import Portefeuille from './Portefeuille'
 const Navigator = () => (
 	<Routes>
 		<Route path={`/`} element={<Accueil/>}/>
-		<Route path={`/portefeuille`} element={<Portefeuille/>}/>
+		<Route path={`/depense`} element={<Portefeuille/>}/>
 	</Routes>
 );
 

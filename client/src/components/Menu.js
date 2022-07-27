@@ -119,6 +119,7 @@ export default function MenuNav() {
 					loisirs : new Map("", 0),
 					abonnements : new Map("", 0),
 					autres : new Map("", 0),
+					totalDepense : new Map("", 0),
 				},
 				    investissements : {
 						bourse : new Map("", 0),
@@ -231,10 +232,10 @@ export default function MenuNav() {
 			<header>
 				<div>
 					<Icone text="Gestion Facile" image="../../images/iconeGestionTransparant.png" navig={"/"} />
-					<Icone text="Portefeuille" image="../../images/dashboard0.png" navig={"/portefeuille"} />
-					<Icone text="Cryptomonnaie" image="../../images/cryptocurrencies.png" navig={"/cryptomonnaie"} />
-					<Icone text="Immobilier" image="../../images/asset-management.png" navig={"/immobilier"} />
-					<Icone text="Bourse" image="../../images/bourse.png" navig={"/bourse"} />
+					<Icone text="Dépenses" image="../../images/dashboard0.png" navig={"/depense"} />
+					{/*<Icone text="Cryptomonnaie" image="../../images/cryptocurrencies.png" navig={"/cryptomonnaie"} />
+					<Icone text="Immobilier" image="../../images/asset-management.png" navig={"/immobilier"} />*/}
+					<Icone text="Investissements" image="../../images/bourse.png" navig={"/investissements"} />
 					<Menu isLazy>
 					<MenuButton>
 						<Tooltip label={"Mon Compte"} fontSize='md' bg="#3d4752"> 

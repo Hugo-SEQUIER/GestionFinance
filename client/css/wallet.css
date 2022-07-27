@@ -17,3 +17,9 @@
     color: #cad1d8 !important;
     border-radius: 20px !important;
 }
+
+.tableWallet {
+    width: 92%;
+    margin-left: 4%;
+    padding: 2%;
+}

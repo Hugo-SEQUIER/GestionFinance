@@ -18,6 +18,7 @@ const userSchema = mongoose.Schema({
         loisirs : {type: Map},
         abonnements : {type: Map},
         autres : {type: Map},
+        totalDepense : {type: Map},
     },
     investissements : {
         bourse : {type: Map},
