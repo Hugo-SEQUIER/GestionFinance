@@ -17,6 +17,7 @@ exports.signup = (req, res, next) =>{
             password: hash,
             fonds : req.body.fondsUser,
             depense : req.body.depense,
+            investissements : req.body.investissements,
         });
         user.save()
             .then(() => res.status(201).json({message : "Utilisateur crée !"}))
@@ -77,6 +78,7 @@ exports.modifyInfo= (req, res, next) => {
       password: hash,
       fonds : req.body.fondsUser,
       depense : req.body.depense,
+      investissements : req.body.investissements,
     }
   }).then(() => res.status(201).json({message: "objet modifié"}))
     .catch((err) => res.status(401).json({err : err}));

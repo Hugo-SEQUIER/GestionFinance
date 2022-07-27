@@ -113,18 +113,20 @@ export default function MenuNav() {
 				depense :{
 					loyer : new Map("", 0),
 					besoins : new Map("", 0),
-					investissements : {
-						bourse : new Map("", 0),
-						crypto : new Map("", 0),
-						immobilier : new Map("", 0),
-						autres : new Map("", 0),
-					},
+					investissements : 0,
 					mensualites : new Map("", 0),
 					epargne : new Map("", 0),
 					loisirs : new Map("", 0),
 					abonnements : new Map("", 0),
 					autres : new Map("", 0),
-				}
+				},
+				    investissements : {
+						bourse : new Map("", 0),
+						crypto : new Map("", 0),
+						immobilier : new Map("", 0),
+						autres : new Map("", 0),
+						totalInvestie : 0,
+					},
             }).then(() =>  {
 				setMessageErreur("Vous êtes bien inscrit !");
 				onClose;

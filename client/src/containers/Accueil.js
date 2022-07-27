@@ -35,7 +35,7 @@ export default function Accueil() {
 
         data(props){
             if (props.chart == "donut")
-                return donutChart(donut);
+                return donutChart(donut,`${new Date().getMonth() +1}/${new Date().getFullYear()}`,2000, 2000);
             if (props.chart == "area")
                 return areaChart(area);
             if (props.chart == "pie")

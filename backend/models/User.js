@@ -12,18 +12,20 @@ const userSchema = mongoose.Schema({
     depense : {
         loyer : {type: Map},
         besoins : {type: Map},
-        investissements : {
-            bourse : {type: Map},
-            crypto : {type: Map},
-            immobilier : {type: Map},
-            autres : {type: Map},
-        },
+        investissements : {type: Map},
         mensualites : {type: Map},
         epargne : {type: Map},
         loisirs : {type: Map},
         abonnements : {type: Map},
         autres : {type: Map},
-    }
+    },
+    investissements : {
+        bourse : {type: Map},
+        crypto : {type: Map},
+        immobilier : {type: Map},
+        autres : {type: Map},
+        totalInvestie : {type: Number}
+    },
 });
 
 
