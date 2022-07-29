@@ -109,7 +109,7 @@ export default function MenuNav() {
 				birthdayUser : birthdayUser,
                 mailUser: mailUser,
                 passwordUser : passwordUser,
-				fondsUser : 0,
+				fondsUser : new Map("",0),
 				depense :{
 					loyer : new Map("", 0),
 					besoins : new Map("", 0),
